@@ -14,6 +14,11 @@ class UserDetailViewController: UIViewController {
     userName.text = user.name.first.capitalized + " " + user.name.last.capitalized
     userEMail.text = user.email
     userCity.text = user.location.city.capitalized
-        
-    }
+        do {
+           let imageData = try Data(contentsOf: user.picture.large)
+            userPicture.image = UIImage.init(data: imageData)
+        } catch {
+            print("Error: \(error)")
+     }
+   }
 }

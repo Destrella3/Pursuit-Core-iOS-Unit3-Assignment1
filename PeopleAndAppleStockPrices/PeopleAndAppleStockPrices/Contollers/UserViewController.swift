@@ -15,7 +15,7 @@ class UserViewController: UIViewController {
     
     override func viewDidLoad() {
     super.viewDidLoad()
-    loadData()
+    user = loadData()
     userTableView.dataSource = self
     userSearchBar.delegate = self
   }
@@ -27,18 +27,21 @@ class UserViewController: UIViewController {
             destination.user = userSelected
     }
     
-    func loadData() {
+    func loadData() -> [UserInfo] {
+        var emptyUser = [UserInfo]()
         if let path = Bundle.main.path(forResource: "userinfo", ofType: "json") {
             let myURl = URL.init(fileURLWithPath: path)
             if let data = try? Data.init(contentsOf: myURl ) {
                 do {
                     let newUser = try JSONDecoder().decode(User.self, from: data)
-                    user = newUser.results.sorted(by: {$0.name.first < $1.name.first})
+                    
+                    emptyUser = newUser.results.sorted(by: {$0.name.first < $1.name.first})
                 } catch {
                     print("Error: \(error)")
                 }
             }
         }
+        return emptyUser
     }
 }
 
@@ -55,10 +58,17 @@ extension UserViewController: UITableViewDataSource {
         let userLocation = users.location
         cell.detailTextLabel?.text = userLocation.city.capitalized
         return cell
-        
     }
 }
 
 extension UserViewController: UISearchBarDelegate {
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let userText = searchBar.text else { return }
+        if userText != "" {
+            user = loadData()
+            user = user.filter(){$0.name.first.capitalized.contains(userText)}
+        } else {
+            user = loadData()
+        }
+    }
 }

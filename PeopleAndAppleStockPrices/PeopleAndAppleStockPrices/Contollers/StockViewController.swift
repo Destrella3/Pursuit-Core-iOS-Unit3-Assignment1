@@ -12,6 +12,14 @@ class StockViewController: UIViewController {
         loadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destination = segue.destination as? StockDetailViewController,
+            let cellSelected = stockTableView.indexPathForSelectedRow else { return }
+            let userSelected = stocks[cellSelected.row]
+            destination.stock = userSelected
+        
+    }
+    
     func loadData() {
         if let path = Bundle.main.path(forResource: "applstockinfo", ofType: "json") {
             let myURl = URL.init(fileURLWithPath: path)
@@ -35,7 +43,7 @@ extension StockViewController: UITableViewDataSource {
         let cell = stockTableView.dequeueReusableCell(withIdentifier: "AppleStockCell", for: indexPath)
         let stock = stocks[indexPath.row]
         cell.textLabel?.text = stock.date
-        cell.detailTextLabel?.text = "\(stock.open)"
+        cell.detailTextLabel?.text = String(format: "%.2f", stock.close)
         return cell
     }
 }
