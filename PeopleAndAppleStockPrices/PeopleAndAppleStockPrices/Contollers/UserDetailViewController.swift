@@ -11,7 +11,7 @@ class UserDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    userName.text = user.name.first.capitalized + " " + user.name.last.capitalized
+    userName.text = user.name.fullName
     userEMail.text = user.email
     userCity.text = user.location.city.capitalized
         do {

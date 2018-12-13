@@ -14,6 +14,9 @@ struct User: Codable {
         let title: String
         let first: String
         let last: String
+        public var fullName: String {
+            return first.capitalized + " " + last.capitalized
+        }
     }
     struct Location: Codable {
         let street: String

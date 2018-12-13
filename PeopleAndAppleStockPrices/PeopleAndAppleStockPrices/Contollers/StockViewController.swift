@@ -3,13 +3,17 @@ import UIKit
 class StockViewController: UIViewController {
 
     var stocks = [AppleStock]()
+    var stockMatrix = [[AppleStock]]()
+    
     
     @IBOutlet weak var stockTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         stockTableView.dataSource = self
+        stockTableView.delegate = self
         loadData()
+        title = "Stocks"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -32,6 +36,10 @@ class StockViewController: UIViewController {
             }
         }
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
 }
 
 extension StockViewController: UITableViewDataSource {
@@ -45,5 +53,12 @@ extension StockViewController: UITableViewDataSource {
         cell.textLabel?.text = stock.date
         cell.detailTextLabel?.text = String(format: "%.2f", stock.close)
         return cell
+    }
+}
+
+extension StockViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+     return ""
+        
     }
 }

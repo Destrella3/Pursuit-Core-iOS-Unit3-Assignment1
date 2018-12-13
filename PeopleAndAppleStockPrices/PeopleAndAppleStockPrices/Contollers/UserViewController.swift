@@ -18,6 +18,7 @@ class UserViewController: UIViewController {
     user = loadData()
     userTableView.dataSource = self
     userSearchBar.delegate = self
+    title = "Contacts"
   }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -34,7 +35,6 @@ class UserViewController: UIViewController {
             if let data = try? Data.init(contentsOf: myURl ) {
                 do {
                     let newUser = try JSONDecoder().decode(User.self, from: data)
-                    
                     emptyUser = newUser.results.sorted(by: {$0.name.first < $1.name.first})
                 } catch {
                     print("Error: \(error)")
@@ -54,7 +54,7 @@ extension UserViewController: UITableViewDataSource {
         let cell = userTableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath)
         let users = user[indexPath.row]
         let userName = users.name
-        cell.textLabel?.text = (userName.title.capitalized + " " + userName.first.capitalized + " " + userName.last.capitalized)
+        cell.textLabel?.text = (userName.title.capitalized + " " + userName.fullName)
         let userLocation = users.location
         cell.detailTextLabel?.text = userLocation.city.capitalized
         return cell
@@ -66,7 +66,7 @@ extension UserViewController: UISearchBarDelegate {
         guard let userText = searchBar.text else { return }
         if userText != "" {
             user = loadData()
-            user = user.filter(){$0.name.first.capitalized.contains(userText)}
+            user = user.filter(){$0.name.fullName.contains(userText)}
         } else {
             user = loadData()
         }
