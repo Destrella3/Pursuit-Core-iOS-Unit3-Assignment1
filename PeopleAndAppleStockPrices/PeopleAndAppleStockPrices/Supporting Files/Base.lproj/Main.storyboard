@@ -191,7 +191,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="5u2-wk-PYq"/>
                     <connections>
-                        <outlet property="stockTableView" destination="cVO-wi-XMj" id="Srr-vZ-qSo"/>
+                        <outlet property="stockTableView" destination="cVO-wi-XMj" id="5oq-vQ-k2a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZPx-sB-RX6" userLabel="First Responder" sceneMemberID="firstResponder"/>

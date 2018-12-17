@@ -14,7 +14,6 @@
 		577E5BF621BA8BA20083EB97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 577E5BF421BA8BA20083EB97 /* LaunchScreen.storyboard */; };
 		577E5BFF21BA8C3B0083EB97 /* userinfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 577E5BFE21BA8C3B0083EB97 /* userinfo.json */; };
 		577E5C0121BA8C5C0083EB97 /* applstockinfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 577E5C0021BA8C5C0083EB97 /* applstockinfo.json */; };
-		62243BBD21C06FF200B284E3 /* StockSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62243BBC21C06FF200B284E3 /* StockSection.swift */; };
 		62CEBB5021BB143F0063CFFF /* AppleStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CEBB4F21BB143F0063CFFF /* AppleStock.swift */; };
 		62CEBB5221BB14DB0063CFFF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CEBB5121BB14DB0063CFFF /* User.swift */; };
 		62CEBB5421BB1CDE0063CFFF /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CEBB5321BB1CDE0063CFFF /* StockViewController.swift */; };
@@ -32,7 +31,6 @@
 		577E5BF721BA8BA20083EB97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		577E5BFE21BA8C3B0083EB97 /* userinfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = userinfo.json; sourceTree = "<group>"; };
 		577E5C0021BA8C5C0083EB97 /* applstockinfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = applstockinfo.json; sourceTree = "<group>"; };
-		62243BBC21C06FF200B284E3 /* StockSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSection.swift; sourceTree = "<group>"; };
 		62CEBB4F21BB143F0063CFFF /* AppleStock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleStock.swift; sourceTree = "<group>"; };
 		62CEBB5121BB14DB0063CFFF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		62CEBB5321BB1CDE0063CFFF /* StockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewController.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 		62CEBB5921BB1F9B0063CFFF /* Contollers */ = {
 			isa = PBXGroup;
 			children = (
-				62243BBC21C06FF200B284E3 /* StockSection.swift */,
 				577E5BED21BA8BA10083EB97 /* UserViewController.swift */,
 				62CEBB5521BB1F820063CFFF /* UserDetailViewController.swift */,
 				62CEBB5321BB1CDE0063CFFF /* StockViewController.swift */,
@@ -199,7 +196,6 @@
 				62CEBB5621BB1F820063CFFF /* UserDetailViewController.swift in Sources */,
 				62CEBB5021BB143F0063CFFF /* AppleStock.swift in Sources */,
 				577E5BEE21BA8BA10083EB97 /* UserViewController.swift in Sources */,
-				62243BBD21C06FF200B284E3 /* StockSection.swift in Sources */,
 				577E5BEC21BA8BA10083EB97 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

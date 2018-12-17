@@ -1,7 +1,7 @@
 import UIKit
 
 class StockDetailViewController: UIViewController {
-    var stock: AppleStock!
+    var stock: [AppleStock]!
     
     @IBOutlet weak var stockImage: UIImageView!
     @IBOutlet weak var stockDate: UILabel!
@@ -14,10 +14,11 @@ class StockDetailViewController: UIViewController {
     }
     
     func updateStockData() {
-        stockDate.text = stock.date
-        stockOpen.text = String(format: "Open: %.2f", stock.open)
-        stockClose.text = String(format: "Close: %.2f", stock.close)
-        if stock.close > stock.open {
+        let stocks = stock[0]
+        stockDate.text = stocks.date
+        stockOpen.text = String(format: "Open: %.2f", stocks.open)
+        stockClose.text = String(format: "Close: %.2f", stocks.close)
+        if stocks.close > stocks.open {
             view.backgroundColor = .green
             stockImage.image = UIImage(named: "thumbsUp")
         } else {

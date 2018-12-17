@@ -1,5 +1,8 @@
 import Foundation
 
+struct StockResults: Codable {
+    let result: [AppleStock]
+}
 struct AppleStock: Codable {
     let date: String
     let open: Double
